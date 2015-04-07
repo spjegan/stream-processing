@@ -16,14 +16,15 @@ public class WordCounterTest {
         builder.setBolt("word-counter", new WordCounterBolt()).shuffleGrouping("word-normalizer");
 
         Config conf = new Config();
-        conf.put("wordsFile", "C:\\wsidea\\stream-processing\\storm-samples\\src\\main\\resources\\words.txt");
+//        conf.put("wordsFile", "C:\\wsidea\\stream-processing\\storm-samples\\src\\main\\resources\\words.txt");
+        conf.put("wordsFile", "/home/jegan/ws/stream-processing/src/main/resources/words.txt");
         conf.setDebug(false);
         conf.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);
 
         LocalCluster cluster = new LocalCluster();
         cluster.submitTopology("Getting-Started-Toplogy", conf,
                 builder.createTopology());
-        Thread.sleep(1000);
+        Thread.sleep(20000);
         cluster.shutdown();
     }
 }

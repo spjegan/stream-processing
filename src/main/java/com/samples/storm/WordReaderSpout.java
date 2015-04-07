@@ -36,7 +36,8 @@ public class WordReaderSpout implements IRichSpout {
         this.topologyContext = topologyContext;
         this.collector = collector;
         try {
-            this.reader = new FileReader(conf.get("wordsfile").toString());
+            String wordsFile = "/home/jegan/ws/stream-processing/src/main/resources/words.txt";
+            this.reader = new FileReader(wordsFile);
         } catch (FileNotFoundException ex) {
             System.err.println("Unable to locate the file");
             ex.printStackTrace();
