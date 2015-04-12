@@ -26,18 +26,19 @@ object TwitterTest extends App {
       println(status.getText)
       streamer ! KafkaMessage(status.getText)
     }
-    def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) {}
-    def onTrackLimitationNotice(numberOfLimitedStatuses: Int) {}
+
+    def onDeletionNotice(statusDeletionNotice: StatusDeletionNotice) = ???
+
+    def onTrackLimitationNotice(numberOfLimitedStatuses: Int) = ???
+
     def onException(ex: Exception) = ex.printStackTrace
-    def onScrubGeo(arg0: Long, arg1: Long) {}
-    def onStallWarning(warning: StallWarning) {}
+
+    override def onStallWarning(warning: StallWarning): Unit = ???
+
+    override def onScrubGeo(userId: Long, upToStatusId: Long): Unit = ???
   }
 
   val twitterStream = new TwitterStreamFactory(configuration).getInstance
   twitterStream.addListener(statusListener)
-//  twitterStream.filter(new FilterQuery(Array(1344951, 5988062, 807095, 3108351)))
   twitterStream.sample("en")
-  Thread.sleep(20000)
-  twitterStream.cleanUp
-  twitterStream.shutdown
 }
