@@ -12,10 +12,10 @@ object TwitterTest extends App {
 
   val configuration = new ConfigurationBuilder()
                       .setDebugEnabled(true)
-                      .setOAuthConsumerKey("cZuOtLLtdpPe2vaiF5mZQxZIB")
-                      .setOAuthConsumerSecret("eePBISVmXBWhk01uvb810qi5IpIo3xnIgJmbhdywqarV3dlmYL")
-                      .setOAuthAccessToken("1394959760-IsZz7rGXxAuVox72rTAm8BomskV4VeoAg7tOi0y")
-                      .setOAuthAccessTokenSecret("YXAiw4sKyqkDSjmBh9VaY1OEPRkMqSipx6Oa5PdtD0h8o")
+                      .setOAuthConsumerKey("*****")
+                      .setOAuthConsumerSecret("*****")
+                      .setOAuthAccessToken("*****")
+                      .setOAuthAccessTokenSecret("*****")
                       .build()
 
   val as = ActorSystem("StreamingActors")
